@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Pacientes</h1>
+<a href="{% url 'crear_paciente' %}" class="btn btn-primary">Añadir Paciente</a>
+<a href="{% url 'vista_principal' %}" class="btn btn-secondary">Volver a la Lista de Pacientes</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Altura</th>
+            <th>Género</th>
+            <th>Nivel de Actividad</th>
+            <th>Acciones</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for paciente in pacientes %}
+        <tr>
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ paciente.edad }}</td>
+            <td>{{ paciente.peso }}</td>
+            <td>{{ paciente.altura }}</td>
+            <td>{{ paciente.genero }}</td>
+            <td>{{ paciente.nivel_actividad }}</td>
+            <td>
+                <a href="{% url 'detalles_paciente' paciente.id %}" class="btn btn-info">Ver Detalles</a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

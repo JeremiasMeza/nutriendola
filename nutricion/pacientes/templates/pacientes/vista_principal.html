@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center my-5">
+    <h1 class="title">Bienvenido al Sistema de Nutrición</h1>
+    <p class="description">Aquí puedes gestionar a tus pacientes y realizar cálculos nutricionales.</p>
+
+    <div class="mt-4">
+        <a href="{% url 'crear_paciente' %}" class="btn btn-primary">Añadir Paciente</a>
+        <a href="{% url 'lista_pacientes' %}" class="btn btn-secondary">Ver Todos los Pacientes</a>
+    </div>
+</div>
+{% endblock %}
